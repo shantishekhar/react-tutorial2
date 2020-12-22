@@ -5,12 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 
+import {createStore, combineReducers} from 'redux';
+import {Provider} from 'react-redux';
+import reducer from './store/reducer';
+
+const store=createStore(reducer);
+
 const app=(
+  <Provider store={store}>
   <BrowserRouter>
     <React.StrictMode>
 <App />
 </React.StrictMode>
   </BrowserRouter>
+  </Provider>
 )
 
 ReactDOM.render(
